@@ -6,6 +6,43 @@ const homeBox = document.querySelector('.home-box');
 const quizBox = document.querySelector('.quiz-box');
 const resultBox = document.querySelector('.result-box');
 
+//timing function
+const countDownEl = document.querySelector('.right')
+const startTime = countDownEl.innerHTML;
+// let time = startTime * 60;
+// function updateCountDown(){
+//     if (countDownEl < 0) {
+//         setTimeout('document.quizz.submit()', 1);
+//     }else{
+//         const minutes = Math.floor(time / 60)
+//         let seconds = time % 60;
+//         seconds = seconds < 10 ? '0' + seconds : seconds
+//         countDownEl.innerHTML = `${minutes} : ${seconds} mins`
+//         time--;
+//     }
+// }
+
+let total_seconds = 60*0.2
+let c_minutes = parseInt(total_seconds/60)
+let c_seconds = parseInt(total_seconds%60)
+
+
+function updateCountDown(){
+    countDownEl.innerHTML = 'time left '+c_minutes+' minutes '+c_seconds+' seconds'
+    if(total_seconds < 0){
+        setTimeout('document.quizz.submit() ',1);
+    }else{
+        total_seconds--;
+        c_minutes = Math.floor(parseInt(total_seconds / 60))
+        seconds = Math.floor(parseInt(total_seconds % 60))
+        seconds = seconds < 10 ? '0' + seconds : seconds
+        countDownEl.innerHTML = `${minutes} : ${seconds} mins`
+        setTimeout('updateCountDown'(), 1000);
+    }
+}
+// end of timing function
+
+
 let questionCounter = 0;
 let currentQuestion;
 let availableQuestions = [];
@@ -157,6 +194,7 @@ function getResult(element) {
     // }
 
     function startQuiz(){
+        setInterval(updateCountDown, 1000)
         homeBox.classList.add('hide');
         quizBox.classList.remove('hide')
         setAvailableQuestions();

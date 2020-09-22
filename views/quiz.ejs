@@ -1,5 +1,11 @@
 <%- include('./partials/header') -%>
 <div class="container ">
+    <%if(adminquestion){%>
+    <% adminquestion.forEach(adminquestion =>{%>
+    <h3 class="right "><%= adminquestion.time %></h3>
+    <!-- <h3 class="right">10</h3> -->
+    <% })%>
+    <%}%>
     <h1 class="mt-4 text-primary">Test</h1>
     <p class="lead mb-3">Goodluck <span class="text-primary"><%= name %></span></p>
 
@@ -35,47 +41,53 @@
         
         
 
-    <!-- QUESTIONS DISPLAY -->
-    <div class="quiz-box custom-box hide">
-        <div class="question-number"></div>
-        <div class="question-text"></div>
-        <div class="option-container"></div>
-        <div class="next-question-btn">
-            <button type="button" class="btn btn-success py-1" onclick="next()">Next</button>
-        </div>
-        <div class="answer-indicator"></div>
-    </div>
+    
 
     <!-- RESULT DISPLAY -->
-    <div class="result-box custom-box hide">
-        <h1>Test Review</h1>
-        <form action="/test" method="post">
-            <p>Attempted <span class='total-attempt'></span>, out of
-                <span class='total-question'></span>, You got
-                <span class='total-correct'></span> correct, and 
-                <span class="total-wrong"></span> wrong.
-            </p>
-            <div class="input-field">
-                <input type="text" name="title" id="title" required>
-                <label for="title">Write the title</label>
+    <div >
+        
+        <form action="/test" name="quizz" method="post">
+
+            <!-- QUESTIONS DISPLAY -->
+            <div class="quiz-box custom-box hide">
+                <div class="question-number"></div>
+                <div class="question-text"></div>
+                <div class="option-container"></div>
+                <div class="next-question-btn">
+                    <button type="button" class="btn btn-success py-1" onclick="next()">Next</button>
+                </div>
+                <div class="answer-indicator"></div>
             </div>
 
-            <table class="d-none">
-                <tr>
-                    <td>Percentage</td>
-                    <td><input type="text" name="testResultPercent" class='bg-white border-0 percentage'></td>
-                </tr>
-                <tr>
-                    <td>Score</td>
-                    <td><input type="text" name="testResultScore" class='bg-white border-0 total-score'></td>
-                </tr>
-                <tr>
-                    <td><input type="text" name="user" value="<%= user._id %>" ></td>
-                </tr>
-            </table>
-            <!-- <button type="button" class="btn btn-success" onclick="tryAgainQuiz()">Try Again</button> -->
-            <!-- <button type="button" class="btn btn-success" onclick="backToHome()">Go To Home</button> -->
-            <input type="submit" class="btn btn-success py-1" value="submit">
-        </form>
+            <div class="result-box custom-box hide">
+                <h1>Test Review</h1>
+                <p>Attempted <span class='total-attempt'></span>, out of
+                    <span class='total-question'></span>, You got
+                    <span class='total-correct'></span> correct, and 
+                    <span class="total-wrong"></span> wrong.
+                </p>
+                <div class="input-field">
+                    <input type="text" name="title" id="title" required>
+                    <label for="title">Write the title</label>
+                </div>
+    
+                <table class="d-none">
+                    <tr>
+                        <td>Percentage</td>
+                        <td><input type="text" name="testResultPercent" class='bg-white border-0 percentage'></td>
+                    </tr>
+                    <tr>
+                        <td>Score</td>
+                        <td><input type="text" name="testResultScore" class='bg-white border-0 total-score'></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="user" value="<%= user._id %>" ></td>
+        </tr>
+        </table>
+        <input type="submit" class="btn btn-success py-1" value="submit">
     </div>
+    <!-- <button type="button" class="btn btn-success" onclick="tryAgainQuiz()">Try Again</button> -->
+    <!-- <button type="button" class="btn btn-success" onclick="backToHome()">Go To Home</button> -->
+    </form>
+</div>
 </div>

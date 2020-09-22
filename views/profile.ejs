@@ -16,7 +16,6 @@
             </a>
             <hr>
         </div>
-
         <!-- view data -->
         <div class="col-12 py-3">
             <% if( !result.user ){ %>
@@ -29,7 +28,7 @@
                         <% if(result.user == user.id){ %>
                             <tr>
                                 <td><%= result.title %></td>
-                                <td><%= result.dateSubmited %></td>
+                                <td><%= fromNow(result.dateSubmited) %></td>
                                 <td><%= result.testResultPercent %></td>
                             </tr>
                         <%}%>
@@ -58,7 +57,7 @@
             <div class="modal-body">
                 <p>Hola, <span class="blue-text"><%= user.firstname %> <%= user.othername %> <%= user.lastname %></span>
                 , This is your email address <span class="red-text"><%= user.email %></span>, 
-                you joined on <span class="green-text"><%= user.date %></span>.</p>
+                you joined <span class="green-text"><%= fromNow(user.date) %></span>.</p>
             </div>
         </div>
     </div>

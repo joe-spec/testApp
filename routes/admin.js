@@ -35,7 +35,7 @@ router.post('/question', (req, res) => {
     adminquestion.opt3 = req.body.opt3;
     adminquestion.opt4 = req.body.opt4;
     adminquestion.instruction = req.body.instruction;
-    // adminquestion.title = req.body.title;
+    adminquestion.time = req.body.time;
 
     adminquestion.save().then(user => {
         req.flash('success_msg', 'question sent successfully')

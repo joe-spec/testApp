@@ -22,9 +22,9 @@ const AdminSchema = mongoose.Schema({
     instruction:{
         type: String,
     },
-    // title:{
-    //     type: String,
-    // },
+    time:{
+        type: String,
+    },
     date:{
         type: Date,
         default:Date.now

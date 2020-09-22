@@ -10,61 +10,33 @@
           <input type="hidden" name="_method" value="PUT">
 
           <div class="input-field">
-            <input
-              type="text"
-              id="firstname"
-              name="firstname"
-              class="form-control"
-              value="<%= user.firstname %>"
-            />
+            <input type="text" id="firstname" name="firstname" class="form-control" value="<%= user.firstname %>" />
             <label for="firstname">Edit First Name</label>
           </div>
 
           <div class="input-field">
-            <input
-              type="text"
-              id="lastname"
-              name="lastname"
-              class="form-control"
-              value="<%= user.lastname %>"
-            />
+            <input type="text" id="lastname" name="lastname" class="form-control" value="<%= user.lastname %>" />
             <label for="lastname">Edit Last Name</label>
           </div>
 
           <div class="input-field">
-            <input
-              type="text"
-              id="othername"
-              name="othername"
-              class="form-control"
-              value="<%= user.othername %>"
-            />
+            <input type="text" id="othername" name="othername" class="form-control" value="<%= user.othername %>" />
             <label for="othername">Edit Other Name</label>
           </div>
 
           <div class="input-field">
-            <input
-              type="email"
-              id="email"
-              name="email"
-              class="form-control"
-              value="<%= user.email %>"
-            />
+            <input type="email" id="email" name="email" class="form-control" value="<%= user.email %>" />
             <label for="email">Email</label>
           </div>
 
           <div class="input-field d-none">
-            <input
-              type="password"
-              id="password"
-              name="password"
-              class="form-control"
-              value="<%= user.password %>"
-            />
+            <input type="password" id="password" name="password" class="form-control" value="<%= user.password %>" />
             <label for="password">Enter Password</label>
           </div>
-
-          <button type="submit" class="btn orange p-1 btn-block">
+          <button class="btn green black-text py-1 btn-right close">
+            Canel
+          </button>
+          <button type="submit" class="btn orange py-1 btn-left">
             Update
           </button>
         </form>

@@ -7,10 +7,12 @@ const bodyParser = require('body-parser');
 const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
+const moment = require('moment');
 const app = express();
 const port = 3333;
-// const cookie = require('js-cookie')
+// var shortDateFormat = "ddd # h:mmA";
 
+// const cookie = require('js-cookie')
 // cookie.set("qut", JSON.stringify(quiz))
 // const data = cookie.getJSON("qut")
 
@@ -69,6 +71,11 @@ app.use((req, res, next)=>{
     res.locals.error_msg = req.flash('error_msg');
     res.locals.error = req.flash('error');
     res.locals.user = req.user;
+    app.locals.fromNow = function(date){
+        return moment(date).fromNow();
+        }
+    // app.locals.moment = moment; 
+    // app.locals.shortDateFormat = shortDateFormat;
     // res.locals.isAuthenticated = 
     next();
 })
